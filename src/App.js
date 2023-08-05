@@ -1,5 +1,5 @@
 import { ThemeProvider } from './contexts/theme-context';
-import './App.css';
+
 import { AppRoutes } from './pages/routes';
 import { ThemeTogglerButton } from './components/theme-toggler-button/theme-toggler-button';
 import styled, { createGlobalStyle } from 'styled-components';
