@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getAbilitys } from "../../services/getAbilitys"
-import styled from "styled-components"
 
 const Abilitys = () => {
    const [ability, setAbilitys] = useState({
@@ -37,9 +36,4 @@ const Abilitys = () => {
 }
 
 export { Abilitys }
-const List= styled.ul`
-list-style:none;
-display:flex;
-flex-flow:column wrap;
-max-width:600px;
-`
+
