@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { getListPokemons } from "../../services/getListPokemons"
-import styled from "styled-components"
+import { Button } from "./styles"
 import iconButton from '../../images/iconButton.png'
 
 const LoadMorePokemons = ({ addNewList }) => {
@@ -27,17 +27,5 @@ const LoadMorePokemons = ({ addNewList }) => {
 
 export { LoadMorePokemons }
 
-const Button = styled.button`
-border-radius:50%;
-transition:0.5s;
-border:none;
-&:hover{
-  margin-left:15px;
-  border: solid 1px  red;
-}
-&:hover img{
-  opacity:0.8;
-  width:33px;
-}
-`
+
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getAbilitys } from "../../services/getAbilitys"
-import  {List } from "./list"
+import  {List } from "./styles"
 const Abilitys = () => {
    const [ability, setAbilitys] = useState({
       effect_changes: [],
