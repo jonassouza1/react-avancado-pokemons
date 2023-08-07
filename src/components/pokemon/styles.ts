@@ -5,7 +5,7 @@ import pokeboll from "../../images/pokeboll.png";
 import { styled } from "styled-components";
 
 interface T {
-    themes:any;
+    themes:{};
 }
 
 const Section = styled.section<T>`
@@ -91,8 +91,8 @@ const List = styled.ul`
 display:flex;
 align-items:center;
 flex-flow:column wrap;
-max-height:200px;
-width:300px;
+max-height:350px;
+width:150px;
 list-style:none;
 margin-top:30px;
 `
@@ -101,6 +101,7 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
+padding:10px;
 h3{
     font-size:20px;
 }

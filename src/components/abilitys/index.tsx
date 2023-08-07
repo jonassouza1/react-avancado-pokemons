@@ -2,10 +2,35 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getAbilitys } from "../../services/getAbilitys"
 import  {List } from "./styles"
+
+interface ChangeEfeect{
+   effect?:string|null|undefined;
+   
+}
+interface Changes {
+   effect_entries:ChangeEfeect[]
+}
+interface EntriesEffect{
+   effect?:string|null|undefined;
+   short_effect:string|null|undefined;
+}
+type Entries = EntriesEffect
+   
+
+
+interface T { 
+   name:string;
+   effect_changes:Changes[];
+   effect_entries:Entries[]
+   
+   }
+
+
 const Abilitys = () => {
-   const [ability, setAbilitys] = useState({
-      effect_changes: [],
-      effect_entries: [[], [{ effect: '' }]]
+   const [ability, setAbilitys] = useState<T>({
+      effect_changes: [{effect_entries:[{},{effect:""}]}],
+      effect_entries: [{effect:"",short_effect:""},{effect:"",short_effect:""}],
+      name:''
    })
    const { name } = useParams()
    useEffect(() => {

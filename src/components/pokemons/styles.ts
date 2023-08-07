@@ -2,7 +2,7 @@ import pokemonsCell from "../../images/pokemonsCell.jpg"
 import styled from "styled-components"
 
 interface Theme {
-    themes:any;
+    themes:{};
 }
 
 const Section = styled.section<Theme>`
