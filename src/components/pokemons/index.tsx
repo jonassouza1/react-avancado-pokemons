@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { FunctionComponent, useEffect, useState } from "react"
 import { getListPokemons } from "../../services/getListPokemons"
 import { Link } from "react-router-dom"
 import { LoadMorePokemons } from "../load-more-pokemons"
@@ -7,9 +7,25 @@ import { getTypePokemons } from "../../services/getTypePokemon"
 import { useContext } from "react"
 import { ThemeContext } from "../../contexts/theme-context"
 import {Section,List,Li,H1,ButtonLoadMore} from "./styles"
-const PokemonsList = () => {
-    const [pokemons, setPokemons] = useState([])
-    const { theme } = useContext(ThemeContext)
+
+interface DreamWorld{
+    dream_world:{front_default:string}
+}
+interface Other{
+    other:DreamWorld;
+}
+
+interface PokemonsProp{
+sprites:Other;
+name:string;
+}
+const PokemonsList:FunctionComponent = () => {
+    const [pokemons, setPokemons] = useState<PokemonsProp[]>([
+       {name:'',
+        sprites: { other: { dream_world:{front_default:''} }}}
+]
+    )
+    const { theme } = useContext<any>(ThemeContext)
     useEffect(() => {
         async function fetchData() {
             const list = await getListPokemons(10)
@@ -17,11 +33,11 @@ const PokemonsList = () => {
         }
         fetchData()
     }, [])
-    const addNewList = newlist => {
+    const addNewList = (newlist:any) => {
 
         setPokemons([...pokemons, ...newlist])
     }
-    const addPokemonType = async newPokemons => {
+    const addPokemonType = async (newPokemons:string) => {
         const typepokemon = await getTypePokemons(newPokemons)
         if(typepokemon ===undefined || 0){return }else{
         setPokemons([...typepokemon])}

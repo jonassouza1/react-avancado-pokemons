@@ -1,19 +1,40 @@
-import { useEffect, useState } from "react"
+import { FunctionComponent, useEffect, useState } from "react"
 import { getPokemon } from "../../services/getPokemon"
 import { useParams } from "react-router-dom"
 import { Abilitys } from "../abilitys"
 import React,{ useContext } from "react"
 import { ThemeContext } from "../../contexts/theme-context"
 import{Section,NameImg,Moves,List,AbilitysDiv,LinkHome,Div}from "./styles"
-
 import { Link } from "react-router-dom"
-const PokemonDetail = () => {
-    const [pokemon, setPokemon] = useState({
-        moves: [{ move: '' }],
-        types: [],
-        sprites: { other: { dream_world: '' } }
+
+interface Move{
+    move:{name:string}
+}
+interface Obj{
+    slot:number;
+    type:{name:string}
+}
+
+interface DreamWorld{
+    dream_world:{front_default:string}
+}
+interface Other{
+    other:DreamWorld;
+}
+interface PokemonProps{
+    name:string;
+    moves:Move[];
+    types:Obj[];
+    sprites:Other;
+}
+const PokemonDetail:FunctionComponent = () => {
+    const [pokemon, setPokemon] = useState<PokemonProps>({
+        name:'',
+        moves:[{move:{name:''}}],
+        types: [{slot:1,type:{name:''}}],
+        sprites: { other: { dream_world:{front_default:''} } }
     })
-    const { theme } = useContext(ThemeContext)
+    const { theme } = useContext<any>(ThemeContext)
 
     const { name } = useParams()
 
@@ -44,7 +65,7 @@ const PokemonDetail = () => {
                 </List>
             </Moves>
             <AbilitysDiv>
-                <Abilitys params={name} />
+                <Abilitys  />
                 <h3>Type</h3>
                 {pokemon.types.map((info, index) => {
                     return <p key={index}>{info.type.name}</p>

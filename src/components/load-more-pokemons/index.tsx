@@ -1,10 +1,16 @@
-import { useEffect, useState } from "react"
+import { FunctionComponent, useEffect, useState } from "react"
 import { getListPokemons } from "../../services/getListPokemons"
 import { Button } from "./styles"
 import iconButton from '../../images/iconButton.png'
 
-const LoadMorePokemons = ({ addNewList }) => {
-  const [pokemons, setNewlist] = useState([])
+
+interface LoadProps{
+  addNewList:(newlist:[]) => void
+  
+}
+
+const LoadMorePokemons:FunctionComponent<LoadProps> = ({ addNewList }) => {
+  const [pokemons, setNewlist] = useState<any>([])
 
   useEffect(() => {
     async function fetchData() {
