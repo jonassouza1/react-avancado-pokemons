@@ -14,7 +14,7 @@ const LoadMorePokemons:FunctionComponent<LoadProps> = ({ addNewList }) => {
 
   useEffect(() => {
     async function fetchData() {
-      const getPokemons = await getListPokemons()
+      const getPokemons = await getListPokemons(20)
       const newPokemons = await getPokemons
       const newListPokemons = newPokemons.filter(info => info.id > 10)
       setNewlist(newListPokemons)
