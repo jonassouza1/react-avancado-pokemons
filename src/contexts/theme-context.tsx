@@ -1,13 +1,8 @@
-import React, { FunctionComponent, createContext } from "react";
+import React, { FunctionComponent, ReactComponentElement, createContext, useEffect, useState } from "react";
 import night from '../images/night.jpg'
 import light from '../images/light.jpg'
 import treeLeaft from '../images/treeLeaft.png'
 import comet from '../images/comet.png'
-import  {usePersistedState} from "../storage/usePersistedState"
-import { DefaultTheme } from "styled-components";
-
-
-
 
 export const themes = {
     light: {
@@ -15,7 +10,7 @@ export const themes = {
         backgroundSize: 'cover',
         backgroundRepeat: 'none',
         color: '#000000',
-        img:`${comet}`
+        img: `${comet}`
 
     },
     dark: {
@@ -23,19 +18,33 @@ export const themes = {
         backgroundSize: 'cover',
         backgroundRepeat: 'none',
         color: '#eeeeee',
-        img:`${treeLeaft}`
-    }
+        img: `${treeLeaft}`
+    },
+
 }
 
 export const ThemeContext = createContext({})
 
-interface ThemesProps{
-children:React.ReactNode;
+interface ThemesProps {
+    children: React.ReactNode;
+
 }
-export const ThemeProvider:FunctionComponent<ThemesProps> = ({children}) => {
-    const [theme, setTheme] = usePersistedState<DefaultTheme>('theme',light)
+
+export const ThemeProvider: FunctionComponent<ThemesProps> = ({ children }) => {
+    const date: any = localStorage.getItem('theme')
+    const storage = JSON.parse(date)
+    const [theme, setTheme] = useState(themes.light)
+
+
+    useEffect((): any => {
+        if (storage) {
+            setTheme(storage)
+        } else { return themes.light }
+
+    }, [])
+
     return (
-        <ThemeContext.Provider value={{theme,setTheme}}>
+        <ThemeContext.Provider value={{ theme, setTheme }}>
             {children}
         </ThemeContext.Provider>
     )

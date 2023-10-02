@@ -12,5 +12,6 @@ border:none;
 &:hover img{
   opacity:0.8;
   width:33px;
+  cursor:pointer;
 }
 `

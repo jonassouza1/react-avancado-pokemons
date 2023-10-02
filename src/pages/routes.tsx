@@ -1,6 +1,6 @@
 import { BrowserRouter,Route,Routes } from "react-router-dom"
-import { Home } from './pokemons'
-import { Pokemon } from './pokemon'
+import { PokemonsList } from "../components/pokemons"
+import { PokemonDetail } from "../components/pokemon"
 
 
 
@@ -10,8 +10,8 @@ const AppRoutes = ()=>{
     return (
     <BrowserRouter>
     <Routes>
-        <Route path='/'  element={<Home/>} />
-        <Route path='/pokemon/:name' element={<Pokemon/>} />
+        <Route path='/'  element={<PokemonsList/>} />
+        <Route path='/pokemon/:name' element={<PokemonDetail/>} />
     </Routes>
     </BrowserRouter>
     )

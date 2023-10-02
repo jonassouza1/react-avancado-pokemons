@@ -1,16 +1,20 @@
+
 import pokemonsCell from "../../images/pokemonsCell.jpg"
 import styled from "styled-components"
 
-interface Theme {
-    themes:{};
+
+interface T{
+    themes:{}
 }
 
-const Section = styled.section<Theme>`
+
+const Section = styled.section<T>`
 ${props => props.themes}
 @media(max-width:780px){
     display:flex;
     flex-flow:column wrap;
     align-items:center;
+    
 }
 `
 const List = styled.ul`
@@ -68,4 +72,9 @@ align-items:center;
 justify-content:center;
 margin-top:-5px;
 `
-export{Section,List,Li,H1,ButtonLoadMore}
+const P = styled.p`
+font-size:20px !important;
+
+color:#191970;
+`
+export{Section,List,Li,H1,ButtonLoadMore,P}

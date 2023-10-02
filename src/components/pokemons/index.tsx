@@ -6,7 +6,8 @@ import { SearchPokemons } from "../search-pokemons"
 import { getTypePokemons } from "../../services/getTypePokemon"
 import { useContext } from "react"
 import { ThemeContext } from "../../contexts/theme-context"
-import {Section,List,Li,H1,ButtonLoadMore} from "./styles"
+import {Section,List,Li,H1,ButtonLoadMore,P} from "./styles"
+import {ThemeTogglerButton} from "../theme-toggler-button/theme-toggler-button"
 
 interface DreamWorld{
     dream_world:{front_default:string}
@@ -45,6 +46,7 @@ const PokemonsList:FunctionComponent = () => {
     }
     return (
         <Section themes={theme} >
+            <ThemeTogglerButton/>
             <SearchPokemons addPokemonType={addPokemonType} />
             <List>
                 {pokemons.map((pokemon, index) => {
@@ -58,7 +60,7 @@ const PokemonsList:FunctionComponent = () => {
                 })}
             </List>
             <ButtonLoadMore>
-                <p>Load</p>
+                <P>Load</P>
                 <LoadMorePokemons addNewList={addNewList} />
             </ButtonLoadMore>
         </Section>
