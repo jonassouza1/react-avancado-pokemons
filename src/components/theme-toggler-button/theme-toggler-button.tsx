@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactComponentElement, useContext } from "react"
+import React, { FunctionComponent,  useContext } from "react"
 import { ThemeContext, themes } from "../../contexts/theme-context"
 import {Div,Button} from './styles'
 

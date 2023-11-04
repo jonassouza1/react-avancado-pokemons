@@ -18,7 +18,7 @@ describe('search pokemons component', () => {
     expect(input.value).toBe("poison")
   })
 
-  it('should test the click in button ', () => {
+  it('should test the click in button ', () => { 
     const { getByRole } = render(<SearchPokemons />)
     const button = getByRole('btn')
     fireEvent.click(button)
