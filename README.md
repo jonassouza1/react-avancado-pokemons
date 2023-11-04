@@ -50,7 +50,7 @@ Context API is a React library, it is used in cases such as local preferences or
  ```
  3 -install project packages
  ```
- npm install
+ npm install --force
  ```
  4 -start the project
  ```
