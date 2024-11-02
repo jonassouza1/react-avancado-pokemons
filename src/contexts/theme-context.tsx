@@ -27,7 +27,7 @@ export const themes = {
     img: `${treeLeaft}`,
   },
 };
-
+//ola
 export const ThemeContext = createContext({});
 
 interface ThemesProps {
