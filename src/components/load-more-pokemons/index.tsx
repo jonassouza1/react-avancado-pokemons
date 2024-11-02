@@ -1,37 +1,35 @@
-import { FunctionComponent, useEffect, useState } from "react"
-import { getListPokemons } from "../../services/getListPokemons"
-import { Button } from "./styles"
-import iconButton from '../../images/iconButton.png'
+import { FunctionComponent, useEffect, useState } from "react";
+import { getListPokemons } from "../../services/getListPokemons";
+import { Button } from "./styles";
+import iconButton from "../../images/iconButton.png";
 
-
-interface LoadProps{
-  addNewList:(newlist:[]) => void
-  
+interface LoadProps {
+  addNewList: (newlist: []) => void;
 }
 
-const LoadMorePokemons:FunctionComponent<LoadProps> = ({ addNewList }) => {
-  const [pokemons, setNewlist] = useState<any>([])
+const LoadMorePokemons: FunctionComponent<LoadProps> = ({ addNewList }) => {
+  const [pokemons, setNewlist] = useState<any>([]);
 
   useEffect(() => {
     async function fetchData() {
-      const getPokemons = await getListPokemons(20)
-      const newPokemons = await getPokemons
-      const newListPokemons = newPokemons.filter(info => info.id > 10)
-      setNewlist(newListPokemons)
+      const getPokemons = await getListPokemons(20);
+      const newPokemons = await getPokemons;
+      const newListPokemons = newPokemons.filter((info) => info.id > 10);
+      setNewlist(newListPokemons);
     }
-    fetchData()
-  }, [])
+    fetchData();
+  }, []);
 
   const add = () => {
-    addNewList(pokemons)
-    setNewlist([])
-  }
+    addNewList(pokemons);
+    setNewlist([]);
+  };
 
-  return <Button onClick={() => add()} ><img src={iconButton} /></Button>
+  return (
+    <Button onClick={() => add()}>
+      <img src={`${iconButton}`} alt="button" />
+    </Button>
+  );
+};
 
-}
-
-export { LoadMorePokemons }
-
-
-
+export { LoadMorePokemons };

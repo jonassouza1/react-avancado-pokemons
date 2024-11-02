@@ -1,51 +1,54 @@
-import React, { FunctionComponent, ReactComponentElement, createContext, useEffect, useState } from "react";
-import night from '../images/night.jpg'
-import light from '../images/light.jpg'
-import treeLeaft from '../images/treeLeaft.png'
-import comet from '../images/comet.png'
+import React, {
+  FunctionComponent,
+  ReactComponentElement,
+  createContext,
+  useEffect,
+  useState,
+} from "react";
+import night from "../images/night.jpg";
+import light from "../images/light.jpg";
+import treeLeaft from "../images/treeLeaft.png";
+import comet from "../images/comet.png";
 
 export const themes = {
-    light: {
-        backgroundImage: `url(${light})`,
-        backgroundSize: 'cover',
-        backgroundRepeat: 'none',
-        color: '#000000',
-        img: `${comet}`
+  light: {
+    backgroundImage: `url(${light})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "none",
+    color: "#000000",
+    img: `${comet}`,
+  },
+  dark: {
+    backgroundImage: `url(${night})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "none",
+    color: "#eeeeee",
+    img: `${treeLeaft}`,
+  },
+};
 
-    },
-    dark: {
-        backgroundImage: `url(${night})`,
-        backgroundSize: 'cover',
-        backgroundRepeat: 'none',
-        color: '#eeeeee',
-        img: `${treeLeaft}`
-    },
-
-}
-
-export const ThemeContext = createContext({})
+export const ThemeContext = createContext({});
 
 interface ThemesProps {
-    children: React.ReactNode;
-
+  children: React.ReactNode;
 }
 
 export const ThemeProvider: FunctionComponent<ThemesProps> = ({ children }) => {
-    const date: any = localStorage.getItem('theme')
-    const storage = JSON.parse(date)
-    const [theme, setTheme] = useState(themes.light)
+  const date: any = localStorage.getItem("theme");
+  const storage = JSON.parse(date);
+  const [theme, setTheme] = useState(themes.light);
 
+  useEffect((): any => {
+    if (storage) {
+      setTheme(storage);
+    } else {
+      return themes.light;
+    }
+  }, []);
 
-    useEffect((): any => {
-        if (storage) {
-            setTheme(storage)
-        } else { return themes.light }
-
-    }, [])
-
-    return (
-        <ThemeContext.Provider value={{ theme, setTheme }}>
-            {children}
-        </ThemeContext.Provider>
-    )
-}
+  return (
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
