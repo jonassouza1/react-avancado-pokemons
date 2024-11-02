@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "./static/js/main.6212ae16.js",
+    "static/js/496.b7c9c984.chunk.js": "./static/js/496.b7c9c984.chunk.js",
+    "static/media/light.jpg": "./static/media/light.73a4a8a12d8c2592e5b5.jpg",
+    "static/media/pokeboll.png": "./static/media/pokeboll.a7fcca0a187a0029e439.png",
+    "static/media/night.jpg": "./static/media/night.2acc009a8c55a2be8ebd.jpg",
+    "static/media/pokemonsCell.jpg": "./static/media/pokemonsCell.b33bc42fa254ef5f5100.jpg",
+    "static/media/pokemonsSearchType.jpg": "./static/media/pokemonsSearchType.1f950f2bc144aaaf303f.jpg",
+    "index.html": "./index.html",
+    "main.6212ae16.js.map": "./static/js/main.6212ae16.js.map",
+    "496.b7c9c984.chunk.js.map": "./static/js/496.b7c9c984.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.6212ae16.js"
+  ]
+}
