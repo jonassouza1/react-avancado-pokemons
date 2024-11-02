@@ -1,5 +1,6 @@
 import React, {
   FunctionComponent,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ReactComponentElement,
   createContext,
   useEffect,
@@ -44,6 +45,7 @@ export const ThemeProvider: FunctionComponent<ThemesProps> = ({ children }) => {
     } else {
       return themes.light;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
