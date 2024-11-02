@@ -1,0 +1,31 @@
+name: Deploy React App
+
+on:
+  push:
+    branches:
+      - main # Substitua pelo nome da sua branch padrão
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/hydrogen"
+
+      - name: Install dependencies
+        run: npm ci -f
+
+      - name: Build the project
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
