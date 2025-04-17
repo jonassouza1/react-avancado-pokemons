@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/react-avancado-pokemons/static/js/main.e44b2a6a.js",
+    "main.js": "/react-avancado-pokemons/static/js/main.27591ae8.js",
     "static/js/488.23a8d3b2.chunk.js": "/react-avancado-pokemons/static/js/488.23a8d3b2.chunk.js",
     "static/media/light.jpg": "/react-avancado-pokemons/static/media/light.73a4a8a12d8c2592e5b5.jpg",
     "static/media/pokeboll.png": "/react-avancado-pokemons/static/media/pokeboll.a7fcca0a187a0029e439.png",
@@ -8,10 +8,10 @@
     "static/media/pokemonsCell.jpg": "/react-avancado-pokemons/static/media/pokemonsCell.b33bc42fa254ef5f5100.jpg",
     "static/media/pokemonsSearchType.jpg": "/react-avancado-pokemons/static/media/pokemonsSearchType.1f950f2bc144aaaf303f.jpg",
     "index.html": "/react-avancado-pokemons/index.html",
-    "main.e44b2a6a.js.map": "/react-avancado-pokemons/static/js/main.e44b2a6a.js.map",
+    "main.27591ae8.js.map": "/react-avancado-pokemons/static/js/main.27591ae8.js.map",
     "488.23a8d3b2.chunk.js.map": "/react-avancado-pokemons/static/js/488.23a8d3b2.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.e44b2a6a.js"
+    "static/js/main.27591ae8.js"
   ]
 }
