@@ -17,8 +17,7 @@ const Button: any = styled.button<T>`
   }
 `;
 const Div = styled.div<T>`
-  ${(props) => props.theme}
-  position:absolute;
+  position: absolute;
   top: 10px;
   right: 10px;
 `;
